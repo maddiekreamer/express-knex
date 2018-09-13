@@ -16,6 +16,11 @@ app.post("/", (request, response, next) => {
         .then(response.status(201))
 })
 
+app.delete("/id", (request, response, next) => {
+    queries.delete(request.params.id)
+        .then(response.status(204))
+})
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })

@@ -7,8 +7,11 @@ individualStudent = (id) => database.select().from('students_table').where('firs
 
 create = (calliItWhatYouWill) => database('students_table').insert(callItWhatYouWill).returning('*')
 
+delete = (id) => database('students_table').where('id', id).delete()
+
 module.exports = {
     listAll,
     individualStudent,
-    create
+    create,
+    delete
 }
