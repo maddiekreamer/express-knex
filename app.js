@@ -11,6 +11,11 @@ app.get("/:id", (request, response, next) => {
     queries.individualStudent(request.params.id).then(result => response.json({result}))
 })
 
+app.post("/", (request, response, next) => {
+    queries.create(request.body)
+        .then(response.status(201))
+})
+
 app.listen(port, () => {
     console.log(`listening on ${port}`)
 })
