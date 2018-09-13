@@ -6,14 +6,8 @@ module.exports = {
     client: 'pg',
     connection: 'postgresql://localhost/express_knex_warmup'
   },
-
-  staging: {
-
-  },
-
   production: {
     client: 'pg',
-    connection: 'process.env.DATABASE_URL'
+    connection: process.env.DATABASE_URL
   }
-
 };
