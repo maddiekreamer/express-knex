@@ -5,13 +5,13 @@ listAll = () => database.select().from('students_table').orderBy('id', 'desc')
 
 individualStudent = (id) => database.select().from('students_table').where('firstName', id)
 
-create = (calliItWhatYouWill) => database('students_table').insert(callItWhatYouWill).returning('*')
+create = (newStudent) => database('students_table').insert(newStudent).returning('*')
 
-delete = (id) => database('students_table').where('id', id).delete()
+deleteStudent = (id) => database('students_table').where('id', id).del().returning('*')
 
 module.exports = {
     listAll,
     individualStudent,
     create,
-    delete
+    deleteStudent
 }

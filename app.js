@@ -12,13 +12,11 @@ app.get("/:id", (request, response, next) => {
 })
 
 app.post("/", (request, response, next) => {
-    queries.create(request.body)
-        .then(response.status(201))
+    queries.create(request.body).then(result => response.json({result}))
 })
 
-app.delete("/id", (request, response, next) => {
-    queries.delete(request.params.id)
-        .then(response.status(204))
+app.delete("/:id", (request, response, next) => {
+    queries.deleteStudent(request.params.id).then(result => response.json({result}))
 })
 
 app.listen(port, () => {
